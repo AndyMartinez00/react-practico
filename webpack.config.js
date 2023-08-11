@@ -13,12 +13,12 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias:{
-			'@components': path.resolve(__dirname, 'srct/componets/'),
-			'@contatiner': path.resolve(__dirname, 'srct/containers/'),
-			'@styles' :  path.resolve(__dirname, 'srct/styles/'),
-			'@icons' : path.resolve(__dirname, 'srct/assets/icons/'),
-			'@logos' : path.resolve(__dirname, 'srct/assets/logos/'),
-			'@pages': path.resolve(__dirname, 'srct/page/'),
+			'@components': path.resolve(__dirname, 'src/components/'),
+			'@container': path.resolve(__dirname, 'src/containers/'),
+			'@styles' :  path.resolve(__dirname, 'src/styles/'),
+			'@icons' : path.resolve(__dirname, 'src/assets/icons/'),
+			'@logos' : path.resolve(__dirname, 'src/assets/logos/'),
+			'@pages': path.resolve(__dirname, 'src/page/'),
 
 		}
 	},
@@ -48,8 +48,8 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|jp(e*)g|svg|gif)$/,
-				type: 'assets'				
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',			
 
 			}
 		]
