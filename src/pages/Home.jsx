@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductList from '../containers/ProductList';
+import ProductList from '@container/ProductList';
 
 const Home = () => {
 	return (
