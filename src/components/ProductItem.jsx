@@ -5,10 +5,10 @@ import icon from '@icons/bt_add_to_cart.svg';
 const ProductItem = () => {
 	/*manejando hooks estado o ciclo de vida*/
 	/*dos valores 1-estado 2-funcion modificadora ,  */
-	const [cart, setCart] = useState('Hi5'); /*string,boleano,objeto,array*/
+	const [cart, setCart] = useState([]); /*string,boleano,objeto,array*/
 	/*evento que desencadena el mejo de un elemento dentro del estado  */
 	const handleClick =()=>{
-		setCart('Hi5 World');
+		setCart([]);
 	}
 
 	return (
@@ -21,8 +21,7 @@ const ProductItem = () => {
 				</div>
 				<figure onClick={handleClick} >
 					<img src={icon} alt="" />
-				</figure>
-				{cart}
+				</figure>				
 			</div>
 		</div>
 	);

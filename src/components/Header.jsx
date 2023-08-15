@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '@styles/Header.scss';
+import MenuComp from '@components/Menu';
 import logo from '@logos/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
 import icon from '@icons/icon_shopping_cart.svg';
 
 const Header = () => {
+	const [toggle, setToggle] = useState(false);
+
+	const handleToggle = () => {
+		/*cambia de false a true*/ 
+		setToggle(!toggle)
+	};
+
 	return (
 		<nav>
 			<img src={menu} alt="menu" className="menu" />
@@ -33,13 +41,15 @@ const Header = () => {
 			</div>
 			<div className="navbar-right">
 				<ul>
-					<li className="navbar-email">platzi@example.com</li>
+					<li className="navbar-email" onClick={handleToggle}>platzi@example.com</li>
 					<li className="navbar-shopping-cart">
 						<img src={icon} alt="shopping cart" />
 						<div>2</div>
 					</li>
 				</ul>
 			</div>
+			{/* vaidacion que si toggle es false no se muestra, si toggle es true si se   */}
+			{toggle && <MenuComp/> }			
 		</nav>
 	);
 }
