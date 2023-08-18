@@ -1,27 +1,35 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '@styles/ProductItem.scss';
 import icon from '@icons/bt_add_to_cart.svg';
 
-const ProductItem = () => {
+const ProductItem = ({ product }) => {
+	/* desestructuracion del objeto*/
+	const { id, title, price, images } = product;
 	/*manejando hooks estado o ciclo de vida*/
 	/*dos valores 1-estado 2-funcion modificadora ,  */
 	const [cart, setCart] = useState([]); /*string,boleano,objeto,array*/
 	/*evento que desencadena el mejo de un elemento dentro del estado  */
-	const handleClick =()=>{
+	const handleClick = () => {
 		setCart([]);
 	}
 
 	return (
 		<div className="ProductItem">
-			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+			<h1>{id}</h1>
+			<img src={images[0]} alt={title} />
 			<div className="product-info">
 				<div>
-					<p>$120,00</p>
-					<p>Bike</p>
+					<p>{new Intl.NumberFormat('en-US',
+						{
+							style: 'currency',
+							currency: 'USD'
+						}
+					).format(product.price)}</p>
+					<p>{title}</p>
 				</div>
 				<figure onClick={handleClick} >
 					<img src={icon} alt="" />
-				</figure>				
+				</figure>
 			</div>
 		</div>
 	);
