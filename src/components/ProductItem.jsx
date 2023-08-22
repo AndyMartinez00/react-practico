@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import AppContext from '@context/AppContext';
 import '@styles/ProductItem.scss';
 import icon from '@icons/bt_add_to_cart.svg';
 
 const ProductItem = ({ product }) => {
 	/* desestructuracion del objeto*/
 	const { id, title, price, images } = product;
-	/*manejando hooks estado o ciclo de vida*/
-	/*dos valores 1-estado 2-funcion modificadora ,  */
-	const [cart, setCart] = useState([]); /*string,boleano,objeto,array*/
+	/* llamamos [funcion,estado] de useContext  */			
+	const {addToCart} = useContext(AppContext);
 	/*evento que desencadena el mejo de un elemento dentro del estado  */
-	const handleClick = () => {
-		setCart([]);
+	const handleClick = (item) => {
+		//mandamos el objeto producto useInitialState
+		addToCart(item);
 	}
 
 	return (
@@ -27,7 +28,7 @@ const ProductItem = ({ product }) => {
 					).format(product.price)}</p>
 					<p>{title}</p>
 				</div>
-				<figure onClick={handleClick} >
+				<figure onClick={() => handleClick(product)} >
 					<img src={icon} alt="" />
 				</figure>
 			</div>
