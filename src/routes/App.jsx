@@ -16,8 +16,9 @@ import AppContext from '@context/AppContext';
 import useInitialState from '@hooks/useInitialState';
 
 const App = () => {
+	const initialState = useInitialState();
 	return (
-		<AppContext.Provider value= {useInitialState}>
+		<AppContext.Provider value= {initialState}>
 			<BrowserRouter>
 				<Layout>
 					<Switch>

@@ -11,6 +11,7 @@ const ProductItem = ({ product }) => {
 	/*evento que desencadena el mejo de un elemento dentro del estado  */
 	const handleClick = (item) => {
 		//mandamos el objeto producto useInitialState
+		alert(item.id);
 		addToCart(item);
 	}
 

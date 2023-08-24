@@ -20,11 +20,10 @@ const useInitialState = () => {
 		});
 	};
 
-    return (
+    return ({
         state,
 		addToCart
-        
-    );
+    });
 }
 
 export default useInitialState;
