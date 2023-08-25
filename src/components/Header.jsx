@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
+import AppContext from '@context/AppContext';
 import '@styles/Header.scss';
 import MenuComp from '@components/Menu';
 import logo from '@logos/logo_yard_sale.svg';
@@ -7,11 +8,17 @@ import icon from '@icons/icon_shopping_cart.svg';
 
 const Header = () => {
 	const [toggle, setToggle] = useState(false);
+	/*--form1 *
+	const { state } = useContext(AppContext);
+	*/
+	/*--forma2 --*/
+	const {state:{cart}}=useContext(AppContext);
 
 	const handleToggle = () => {
 		/*cambia de false a true*/ 
 		setToggle(!toggle)
 	};
+	
 
 	return (
 		<nav>
@@ -44,7 +51,9 @@ const Header = () => {
 					<li className="navbar-email" onClick={handleToggle}>platzi@example.com</li>
 					<li className="navbar-shopping-cart">
 						<img src={icon} alt="shopping cart" />
-						<div>2</div>
+						{/*state.cart.length > 0 ? <div>{state.cart.length}</div> : null*/}
+						{/*cart.length > 0 ? <div>{cart.length}</div> : null*/}
+						<div>{cart.length > 9 ? `+9` : cart.length || 0}</div>
 					</li>
 				</ul>
 			</div>

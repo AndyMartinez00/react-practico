@@ -11,8 +11,17 @@ const ProductItem = ({ product }) => {
 	/*evento que desencadena el mejo de un elemento dentro del estado  */
 	const handleClick = (item) => {
 		//mandamos el objeto producto useInitialState
-		alert(item.id);
-		addToCart(item);
+		//alert(item.id);
+		if (confirm('Esta seguro de añadir este producto : ' + item.title)) {
+			// guardar
+			console.log(item);
+			addToCart(item);
+		  } else {
+			// nada
+			console.log('Ninguna accion');
+		  }
+
+	
 	}
 
 	return (
