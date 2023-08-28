@@ -1,24 +1,26 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import AppContext from '@context/AppContext';
 import '@styles/Header.scss';
 import MenuComp from '@components/Menu';
+import MyOrder from '@container/MyOrder';
 import logo from '@logos/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
 import icon from '@icons/icon_shopping_cart.svg';
 
 const Header = () => {
 	const [toggle, setToggle] = useState(false);
+	const [toggleOrders, setToggleOrders] = useState(false);
 	/*--form1 *
 	const { state } = useContext(AppContext);
 	*/
 	/*--forma2 --*/
-	const {state:{cart}}=useContext(AppContext);
+	const { state: { cart } } = useContext(AppContext);
 
 	const handleToggle = () => {
-		/*cambia de false a true*/ 
+		/*cambia de false a true*/
 		setToggle(!toggle)
 	};
-	
+
 
 	return (
 		<nav>
@@ -49,7 +51,7 @@ const Header = () => {
 			<div className="navbar-right">
 				<ul>
 					<li className="navbar-email" onClick={handleToggle}>platzi@example.com</li>
-					<li className="navbar-shopping-cart">
+					<li className="navbar-shopping-cart" onClick={()=>setToggleOrders(!toggleOrders)} >
 						<img src={icon} alt="shopping cart" />
 						{/*state.cart.length > 0 ? <div>{state.cart.length}</div> : null*/}
 						{/*cart.length > 0 ? <div>{cart.length}</div> : null*/}
@@ -58,7 +60,8 @@ const Header = () => {
 				</ul>
 			</div>
 			{/* vaidacion que si toggle es false no se muestra, si toggle es true si se   */}
-			{toggle && <MenuComp/> }			
+			{toggle && <MenuComp />}
+			{toggleOrders && <MyOrder />}
 		</nav>
 	);
 }

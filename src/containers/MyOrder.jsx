@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import AppContext from '@context/AppContext';
 import OrderItem from '@components/OrderItem';
 import '@styles/MyOrder.scss';
 import icon from '@icons/flechita.svg';
 
 const MyOrder = () => {
+	/*constante que trae el estado */
+	const { state } = useContext(AppContext);
 	return (
 		<aside className="MyOrder">
 			<div className="title-container">
@@ -11,7 +14,10 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				<OrderItem />
+				{/*iterando los productos con key literals*/}
+				{state.cart.map(product => (
+						<OrderItem product={product} key={`orderItem-${product.id}`} />
+					))}			
 				<div className="order">
 					<p>
 						<span>Total</span>
