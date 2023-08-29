@@ -19,10 +19,21 @@ const useInitialState = () => {
 			cart: [...state.cart, payload]
 		});
 	};
+    //funcion que elimina producto al elemento al arreglo
+    //payload nombre default
+    const removeFromCart = (payload) => {
+		setState({
+             //mentiene el estado
+			...state,
+             //eliminamos elemento producto 
+			cart: state.cart.filter(items => items.id !== payload.id),
+		});
+	}
 
     return ({
         state,
-		addToCart
+		addToCart,
+        removeFromCart,
     });
 }
 
