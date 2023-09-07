@@ -2,6 +2,7 @@
   "name": "react-shop",
   "version": "1.0.0",
   "description": "react eshop",
+  "homepage": "https://andymartinez00.github.io/react-practico/",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
